@@ -1,0 +1,24 @@
+{
+  "name": "puppeteerscripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "skeleton.js",
+  "dependencies": {
+    "puppeteer": "^2.0.0",
+    "puppeteer-core": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertmorel/puppeteerScripts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertmorel/puppeteerScripts/issues"
+  },
+  "homepage": "https://github.com/robertmorel/puppeteerScripts#readme"
+}
