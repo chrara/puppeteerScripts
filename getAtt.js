@@ -25,7 +25,7 @@ function run () {
                     request.abort();
                 }
             });
-            await page.goto("url");
+            await page.goto("");
             let urls = await page.evaluate(() => {
                 let results = [];
                 let items = document.querySelectorAll('#item a');
