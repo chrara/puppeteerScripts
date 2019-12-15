@@ -1,0 +1,77 @@
+<html> 
+<head> 
+
+<title>DOM traversal</title> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	let aLink = document.querySelectorAll("a");
+
+	for( let i=1; i < aLink.length; i++ ){
+
+    if ($("a").parent().is("h"+i)) {
+	  console.log("---------------------------------------------Parent of this link is h"+i); 
+	  $( "h"+i ).each(function( index ) {
+		if( $( "h"+i ).has("a")){
+			console.log( "title: " + $( this ).text() );
+			console.log( "link : " + $("a", this ).attr("href"));
+		} 		
+	});
+	}
+}
+
+});
+
+	</script>
+
+</head>
+<body>
+	<div id="main">
+		<div class="item">
+			<h3><a href="https://test.com">A text 1</a></h3>
+		</div>
+		<div class="item">
+			<h2><a href="#">A tex 2</a></h2>
+		</div>
+		<div class="item">
+			<h3><a href="#">A text 3</a></h3>
+		</div>
+		<div class="item">
+			<h3><a href="#">A text 4</a></h3>
+		</div>
+		<div class="item">
+			<h4><a href="#">A tex 5</a></h4>
+		</div>
+		<div class="item">
+			<h2><a href="#">A text 6</a></h2>
+		</div>
+		<div class="item">
+			<h3><a href="https://test.com">A text 1</a></h3>
+		</div>
+		<div class="item">
+			<h2><a href="#">A tex 2</a></h2>
+		</div>
+		<div class="item">
+			<h1><a href="#">A text 3</a></h1>
+		</div>
+		<div class="item">
+			<h3><a href="#">A text 4</a></h3>
+		</div>
+		<div class="item">
+			<h4><a href="#">A tex 5</a></h4>
+		</div>
+		<div class="item">
+			<h2><a href="#">A text 6</a></h2>
+		</div>
+		</div>
+</body>
+
+
+</html> 
+
+
+
+
