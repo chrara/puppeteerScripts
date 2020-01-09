@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer');
   //console.info(browser);
 
   const page = await browser.newPage();
-  await page.goto('https://imgur.com');
+  await page.goto('https://www.redantsolutions.com/');
 
   const result = await page.evaluate(() => {
     return document.querySelectorAll('p').length
