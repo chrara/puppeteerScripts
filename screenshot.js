@@ -1,41 +1,20 @@
 //Get screenshot of blog page for featured image
 const puppeteer = require('puppeteer');
-const devices = require('puppeteer/DeviceDescriptors');
-
-let url = process.argv[2];
-let urlNoSlash = url.replace(/\\/g, '');
-let screenWidth = process.argv[3];
-
-if (url == null ){
-  console.log("Please enter a url as the first parameter. e.g. https://imgur.com");
-  return;
-} else if (url.indexOf('http') === -1){
-  url = "http://" + url;
-}
-
-if ( isNaN( screenWidth ) ){
-  console.log("Please enter a number to indicate screen width. e.g. 500");
-  return;
-} else screenWidth = Number( screenWidth );
-
-if ( screenWidth > 980 ) {
-  console.log("Maximum screen width for testing screenshots is 980px");
-  screenWidth = 980;
-}
-
-console.log( url );
 
 (async () => {
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
-  //await page.emulate(devices['iPhone X']);
-  await page.setViewport({ width: screenWidth, height: 1080 });
-  await page.goto(url, {waitUntil: ['load', 'domcontentloaded', 'networkidle2', 'networkidle0']} );
+  await page.setViewport({ width: 1420, height: 1080 });
+  await page.goto('https://www.redantsolutions.com/');
+  await page.waitForSelector('body > div.notification-wrapper.cookieWrapper > div > div > div > span');
+  await page.click('body > div.notification-wrapper.cookieWrapper > div > div > div > span')
+  await page.waitFor(1000);
 
-  // Take full page screenshot
+
+  // Takes a screenshot of an area within the page
   await page.screenshot({
-    path: './screenshots/' + urlNoSlash + '.jpg',
+    path: 'screenshot.jpg',
     type: 'jpeg',
     quality: 80,
     fullPage: true
